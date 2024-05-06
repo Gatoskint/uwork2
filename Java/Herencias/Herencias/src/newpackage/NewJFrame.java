@@ -5,16 +5,16 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
-public class NewJFrame extends javax.swing.JFrame {
+public final class NewJFrame extends javax.swing.JFrame {
     DefaultTableModel modelo;
-    Docente docente;
-    Mantenimiento docentes;
+    Trabajador trabajador;
+    Mantenimiento trabajadores;
     public NewJFrame() {
         initComponents();
         String[] columna={"Codigo", "Nombre", "Genero", "Especialidad"};
         modelo = new DefaultTableModel(columna, 0);
         tabla.setModel(modelo);
-        docentes= new Mantenimiento();
+        trabajadores= new Mantenimiento();
         ActualizarTabla();
     }
 
@@ -26,7 +26,7 @@ public class NewJFrame extends javax.swing.JFrame {
         nombreTextField1 = new javax.swing.JTextField();
         edadTextField2 = new javax.swing.JTextField();
         codigoDocTextField3 = new javax.swing.JTextField();
-        correoDocTextField4 = new javax.swing.JTextField();
+        dniTextField4 = new javax.swing.JTextField();
         generoComboBox1 = new javax.swing.JComboBox<>();
         especComboBox2 = new javax.swing.JComboBox<>();
         regisButton1 = new javax.swing.JButton();
@@ -40,7 +40,7 @@ public class NewJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         regisDocLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        regisDocLabel.setText("Registro de docentes");
+        regisDocLabel.setText("Registro de trabajadores");
         getContentPane().add(regisDocLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
 
         nombreTextField1.setBorder(javax.swing.BorderFactory.createTitledBorder("Nombre"));
@@ -49,17 +49,17 @@ public class NewJFrame extends javax.swing.JFrame {
         edadTextField2.setBorder(javax.swing.BorderFactory.createTitledBorder("Edad"));
         getContentPane().add(edadTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 270, -1));
 
-        codigoDocTextField3.setBorder(javax.swing.BorderFactory.createTitledBorder("Código Docente"));
+        codigoDocTextField3.setBorder(javax.swing.BorderFactory.createTitledBorder("Código Trabajador"));
         getContentPane().add(codigoDocTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 270, -1));
 
-        correoDocTextField4.setBorder(javax.swing.BorderFactory.createTitledBorder("Correo Docente"));
-        getContentPane().add(correoDocTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 270, -1));
+        dniTextField4.setBorder(javax.swing.BorderFactory.createTitledBorder("dni trabajador"));
+        getContentPane().add(dniTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 270, -1));
 
         generoComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---GENERO---", "Masculino", "Femenino" }));
         generoComboBox1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         getContentPane().add(generoComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 270, 40));
 
-        especComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---ESPECIALIDAD---", "Gestión de proyectos", "Ciencia de datos", "Gerencia de TI" }));
+        especComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---ESPECIALIDAD---", "Minero", "Cortador de manera", "Escavador" }));
         getContentPane().add(especComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 270, 40));
 
         regisButton1.setText("Registro");
@@ -114,11 +114,11 @@ public class NewJFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
-    private void ActualizarTabla(){
+    public void ActualizarTabla(){
         modelo.setRowCount(0);
-        ArrayList<Docente> listDoc=docentes.obtenerDocente();
-        for (Docente docente1 : listDoc){
-            Object[] filaDato={docente1.getCodigoDoceente(), docente1.getNombre(), docente1.getApellido(), docente1.getEspecialidad()};
+        ArrayList<Trabajador> listDoc=trabajadores.obtenerTrabajador();
+        for (Trabajador trabajador1 : listDoc){
+            Object[] filaDato={trabajador1.getCodigoTrabajador(), trabajador1.getNombre(), trabajador1.getApellido(), trabajador1.getEspecialidad()};
             modelo.addRow(filaDato);
             }
     }
@@ -141,7 +141,7 @@ public class NewJFrame extends javax.swing.JFrame {
         especComboBox2.setSelectedIndex(0);
         nombreTextField1.setText("");
         generoComboBox1.setSelectedIndex(0);
-        correoDocTextField4.setText("");
+        dniTextField4.setText("");
         edadTextField2.setText("");
     }//GEN-LAST:event_cleanButton2ActionPerformed
 
@@ -152,8 +152,8 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void regisButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regisButton1ActionPerformed
         if(validaDatos().equals("")){
-            docente= new Docente(codigoDocTextField3.getText(), especComboBox2.getSelectedItem().toString(), nombreTextField1.getText(), generoComboBox1.getSelectedItem().toString());
-        docentes.agregarDocente(docente);
+            trabajador= new Trabajador(codigoDocTextField3.getText(), especComboBox2.getSelectedItem().toString(), nombreTextField1.getText(), generoComboBox1.getSelectedItem().toString());
+        trabajadores.agregarTrabajador(trabajador);
         ActualizarTabla();
         }else{
             JOptionPane.showMessageDialog(this,validaDatos());
@@ -163,7 +163,7 @@ public class NewJFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int filaSeleccion= tabla.getSelectedRow();
         if(filaSeleccion!=-1){
-            docentes.eliminarDocente(filaSeleccion);
+            trabajadores.eliminarTrabajador(filaSeleccion);
             ActualizarTabla();
         }
         else{
@@ -205,7 +205,7 @@ public class NewJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cleanButton2;
     private javax.swing.JTextField codigoDocTextField3;
-    private javax.swing.JTextField correoDocTextField4;
+    private javax.swing.JTextField dniTextField4;
     private javax.swing.JTextField edadTextField2;
     private javax.swing.JComboBox<String> especComboBox2;
     private javax.swing.JComboBox<String> generoComboBox1;

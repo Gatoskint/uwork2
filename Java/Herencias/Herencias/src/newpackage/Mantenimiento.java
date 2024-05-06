@@ -4,18 +4,18 @@ import java.util.ArrayList;
 
 
 public class Mantenimiento {
-    private ArrayList<Docente> listaDocente;
+    private ArrayList<Trabajador> listaTrabajador;
     
     public Mantenimiento(){
-        listaDocente= new ArrayList<>();
+        listaTrabajador= new ArrayList<>();
     }
-    public void agregarDocente(Docente docente){
-        listaDocente.add(docente);
+    public void agregarTrabajador(Trabajador trabajador){
+        listaTrabajador.add(trabajador);
     }
-    public ArrayList<Docente> obtenerDocente(){
-        return listaDocente;
+    public ArrayList<Trabajador> obtenerTrabajador(){
+        return listaTrabajador;
     }
-    public void eliminarDocente(int indice){
-        listaDocente.remove(indice);
+    public void eliminarTrabajador(int indice){
+        listaTrabajador.remove(indice);
     }
 }

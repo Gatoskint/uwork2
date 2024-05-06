@@ -31,7 +31,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Registro de docentes"/>
+        <Property name="text" type="java.lang.String" value="Registro de trabajadores"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -71,7 +71,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="C&#xf3;digo Docente"/>
+            <TitledBorder title="C&#xf3;digo Trabajador"/>
           </Border>
         </Property>
       </Properties>
@@ -81,11 +81,11 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="correoDocTextField4">
+    <Component class="javax.swing.JTextField" name="dniTextField4">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Correo Docente"/>
+            <TitledBorder title="dni trabajador"/>
           </Border>
         </Property>
       </Properties>
@@ -124,9 +124,9 @@
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
             <StringItem index="0" value="---ESPECIALIDAD---"/>
-            <StringItem index="1" value="Gesti&#xf3;n de proyectos"/>
-            <StringItem index="2" value="Ciencia de datos"/>
-            <StringItem index="3" value="Gerencia de TI"/>
+            <StringItem index="1" value="Minero"/>
+            <StringItem index="2" value="Cortador de manera"/>
+            <StringItem index="3" value="Escavador"/>
           </StringArray>
         </Property>
       </Properties>
