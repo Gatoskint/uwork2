@@ -1,2 +1,2 @@
-# uwork-2-real
-trabajos a partir de ciclo 5 - practicas
+# uwork-2
+Trabajos mas grandes, usando SQL, Python y Java
